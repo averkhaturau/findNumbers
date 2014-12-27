@@ -1,0 +1,8 @@
+This application is a simple game written with Qt QML.
+
+The aim of the game is to find integers one-by-one as quick as possible.
+
+This game trains reaction and concentration and can be used as a part of
+non-phisical sport training.
+
+Dedicated to my son, who will learn digits soon. :)

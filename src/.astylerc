@@ -1,0 +1,1 @@
+--recursive --formatted --style=kr --indent=spaces=4 --indent-preprocessor --indent-col1-comments --pad-oper --pad-header --unpad-paren --add-brackets --keep-one-line-blocks --align-pointer=middle --align-reference=middle --suffix=none --preserve-date  *.cpp *.h

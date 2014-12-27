@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qml/ActionBar.qml</file>
+        <file>qml/HowToPlay.qml</file>
+        <file>qml/controls/MenuBtn.qml</file>
+        <file>qml/PlayScreen.qml</file>
+        <file>qml/RecordsModel.qml</file>
+        <file>qml/RecordsScreen.qml</file>
+        <file>qml/controls/ScrollBar.qml</file>
+        <file>qml/Splash.qml</file>
+        <file>qml/utils.js</file>
+    </qresource>
+</RCC>
