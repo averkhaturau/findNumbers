@@ -29,9 +29,9 @@ HEADERS += \
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
-win32:RC_ICONS += "assets/images/lenin.ico"
-VERSION = "0.0.0.1"
+win32:RC_ICONS += "assets/images/logo.ico"
+VERSION = "0.0.0.2"
 QMAKE_TARGET_COMPANY="Aliaksei Verkhaturau"
 QMAKE_TARGET_DESCRIPTION="Find Numbers game"
-QMAKE_TARGET_COPYRIGHT="Copyright 2014 (C) Aliaksei Verkhaturau"
+QMAKE_TARGET_COPYRIGHT="Copyright 2015 (C) Aliaksei Verkhaturau"
 QMAKE_TARGET_PRODUCT="FindNumbers"

@@ -14,7 +14,7 @@ int main(int argc, char * argv[])
     app.setApplicationName(QStringLiteral("Find Numbers Game"));
     app.setOrganizationDomain(QStringLiteral("1x.at.tut.by"));
     app.setOrganizationName(QStringLiteral("Aliaksei Verkhaturau"));
-    app.setWindowIcon(QIcon("qrc:///assets/images/lenin-85x85.png"));
+    app.setWindowIcon(QIcon("qrc:///assets/images/logo.png"));
 
     QQuickView qmlView;
     qmlView.engine()->addImportPath("qml");
@@ -37,7 +37,6 @@ int main(int argc, char * argv[])
     qmlView.setSource(QStringLiteral("../../../../src/main.qml"));
 #else
     qmlView.setSource(QStringLiteral("../src/main.qml"));
-    //qmlView.setSource(QStringLiteral("../main.qml"));
 #endif //Q_OS_DARWIN
 
     qmlView.engine()->rootContext()->setContextProperty("debug", QVariant(true));

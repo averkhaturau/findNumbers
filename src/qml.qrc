@@ -9,6 +9,7 @@
         <file>qml/RecordsScreen.qml</file>
         <file>qml/controls/ScrollBar.qml</file>
         <file>qml/Splash.qml</file>
+        <file>qml/StartFinishScreen.qml</file>
         <file>qml/utils.js</file>
     </qresource>
 </RCC>

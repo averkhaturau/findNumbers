@@ -7,26 +7,29 @@ Rectangle {
     anchors.fill: parent
     color: Utils.mainBgColor
 
-
     Image {
         id: logo
-        source: "qrc:/assets/images/lenin-300x235.jpg"
-        fillMode: Image.PreserveAspectCrop
+        source: "qrc:/assets/images/logo.png"
+        fillMode: Image.PreserveAspectFit
         anchors.fill: parent
+        anchors.margins: splash.width /4
         smooth: true
     }
 
     Text {
         text: "Improve you attension and concentration!!!"
         color: "white"
-        anchors.horizontalCenter: logo.horizontalCenter
-        anchors.topMargin: 15
+        //anchors.centerIn: splash
+        anchors.horizontalCenter: splash.horizontalCenter
+        anchors.topMargin: 3
         anchors.top: logo.bottom
+        font.family: Utils.fontFamily
+        font.pointSize: 12
     }
 
     Timer {
         id: timer
-        interval: 1234 // bla-bla-bla
+        interval: 3000
         running: false
         onTriggered: theMainWindow.nextScreen()
     }

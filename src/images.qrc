@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>assets/images/lenin-85x85.png</file>
-		<file>assets/images/lenin-300x235.jpg</file>
-		<file>assets/images/lenin.ico</file>
+        <file>assets/images/logo.png</file>
+        <file>assets/images/logo.ico</file>
     </qresource>
 </RCC>

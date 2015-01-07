@@ -15,16 +15,28 @@ Rectangle {
         onStartNewGame: startNewGame()
         onSetFieldSize: {actionBar.stopTimer();playSizeMenu.popup()}
     }
+
     function startNewGame(){
+        console.log("Show start screen")
+        startFinishScreen.theText = qsTr("Attention!")
+        startFinishScreen.visible = true
+
         console.log("Restarting the game")
         var numVals = theSettings.maxNumber
-        theSettings.maxNumber = 1
+        theSettings.numbersOrder = ''
         theSettings.maxNumber = numVals
         playField.lastFoundVal = 0
-        actionBar.startTimer()
+
+        startFinishScreen.nextCmd = function(){
+            actionBar.startTimer();
+        }
         console.log("Restarting the game - done.")
     }
     function stopGame(){
+
+        startFinishScreen.theText = qsTr("Congrats!")
+        startFinishScreen.visible = true
+
         console.log("Game Stopped")
         var timeSpan = actionBar.stopTimer()
 
@@ -35,10 +47,13 @@ Rectangle {
             when: new Date().toString()
         }
         recordsModel.addItem(newRecord)
-        // TODO: show congrats screen
-        mainLoader.source = "RecordsScreen.qml"
-        // TODO: play congrats sound
 
+        startFinishScreen.nextCmd = function(){
+
+            // TODO: show congrats screen
+            mainLoader.source = "RecordsScreen.qml"
+            // TODO: play congrats sound
+        }
     }
 
     Menu {
@@ -143,9 +158,14 @@ Rectangle {
         }
         property int lastFoundVal: 0
 
+        StartFinishScreen{
+            id: startFinishScreen
+            visible: true
+        }
+
 
         function checkLogic(ind){
-            console.log("clicked on "+ind);
+            console.log("clicked on " + ind);
             if (lastFoundVal + 1 === ind){
                 if (++lastFoundVal === lastValue){
                     stopGame()

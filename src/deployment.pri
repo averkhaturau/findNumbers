@@ -22,6 +22,10 @@ android-no-sdk {
         export(target.path)
     }
     INSTALLS += target
+} else:win {
+    target.path = .
+    export(target.path)
+    INSTALLS += target
 }
 
 export(INSTALLS)

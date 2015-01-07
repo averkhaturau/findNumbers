@@ -12,7 +12,7 @@ Rectangle {
     objectName: "theMainWindow"
     anchors.fill: parent
     visible: true
-    color: "black"
+    color: Utils.mainBgColor
 
     ActionBar {
         id: actionBar

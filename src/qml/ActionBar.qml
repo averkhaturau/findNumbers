@@ -57,33 +57,37 @@ Rectangle{
             text: "00:00"
             width: contentWidth
             color: Utils.mainFrColor
-            font.pixelSize: parent.height*0.9
+            font.pixelSize: parent.height * 0.9
             anchors.centerIn: parent
         }
         property var startTime: null
+        function updateTimeSpan(){
+            if (typeof timerView.startTime !== "undefined"){
+                var timeSpan = new Date() - timerView.startTime
+                var seconds = Math.floor(timeSpan / 1000) % 60
+                var minutes = Math.floor(timeSpan / 60000)
+                timerText.text = "%1:%2".arg(("00" + minutes).slice (-2)).arg(('00' + seconds).slice(-2))
+            }else{
+                timerText.text = "00:00"
+            }
+            return timeSpan;
+        }
         Timer{
             id: timer
             interval: 1000
             repeat : true; running : false; triggeredOnStart : true
-            onTriggered: if (typeof timerView.startTime !== "undefined"){
-                             var dateDiff = new Date() - timerView.startTime
-                             var seconds = Math.floor(dateDiff / 1000) % 60
-                             var minutes = Math.floor(dateDiff / 60000)
-                             timerText.text = "%1:%2".arg(("00" + minutes).slice (-2)).arg(('00'+seconds).slice(-2))
-                         }else{
-                             timerText.text = "00:00"
-                         }
+            onTriggered: timerView.updateTimeSpan()
         }
     }
+
     function startTimer(){
         console.log("startTimer-begin")
         timerView.startTime = new Date()
-        timer.start();
-        console.log(typeof timerView.startTime)
+        timer.start()
         console.log("startTimer-end")
     }
     function stopTimer(){
-        timer.stop();
-        return new Date() - timerView.startTime
+        timer.stop()
+        return timerView.updateTimeSpan()
     }
 }

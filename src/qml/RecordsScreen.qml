@@ -30,10 +30,14 @@ Rectangle {
             highlightedTextColor: Utils.mainFrColor
         }
 
-        TableViewColumn { title: "Size"; role: "playSize"  }
-        TableViewColumn { title: "When"; role: "when"; delegate: Item{Text{color: styleData.textColor; text: Qt.formatDateTime(new Date(styleData.value), "yyyy-MM-ss h:mm")}} }
-        TableViewColumn { title: "Time"; role: "playTime"
+        TableViewColumn { title: qsTr("Size"); role: "playSize"  }
+
+        TableViewColumn { title: qsTr("Time"); role: "playTime"
             delegate: Item {Text{ color: styleData.textColor; text: Qt.formatDateTime(new Date(styleData.value), "mm:ss")}}
+        }
+
+        TableViewColumn { title: qsTr("When"); role: "when"
+            delegate: Item{Text{color: styleData.textColor; text: Qt.formatDateTime(new Date(styleData.value), "yyyy-MM-ss h:mm")}}
         }
 
         section.property: "playSize"
@@ -54,7 +58,7 @@ Rectangle {
 
         Text {
             id: btnText
-            text: "Play again"
+            text: qsTr("Play again")
             anchors.centerIn: parent
             color: Utils.mainFrColor
             font.pixelSize: Utils.scaled(18)
