@@ -85,3 +85,7 @@ function serializeListModel(model){
     }
 }
 
+function randomColor(){
+    return Qt.hsla(Math.random(), Math.random(), 0.7, 0.6);
+}
+
