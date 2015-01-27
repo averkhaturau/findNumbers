@@ -41,18 +41,11 @@ Rectangle {
             }
         }
 
-//        TableViewColumn { title: qsTr("Size"); role: "playSize"
-//            delegate: Item {Text{color:Utils.randomColor(); text: styleData.value}}
-//        }
+        //        TableViewColumn { title: qsTr("Size"); role: "playSize"
+        //            delegate: Item {Text{color:Utils.randomColor(); text: styleData.value}}
+        //        }
 
-        TableViewColumn { title: qsTr("Time"); role: "playTime"
-            delegate: Item {Text{ color: Utils.randomColor(); text: Qt.formatDateTime(new Date(styleData.value), "mm:ss")}}
-        }
-
-        TableViewColumn { title: qsTr("When"); role: "when"
-            delegate: Item{Text{color: Utils.randomColor(); text: Qt.formatDateTime(new Date(styleData.value), "yyyy-MM-ss h:mm")}}
-        }
-
+        //property var secColor: Utils.randomColor()
         section{
             criteria: ViewSection.FullString
             property: "playSize"
@@ -61,7 +54,6 @@ Rectangle {
                 width: recordsView.width
                 height: childrenRect.height
                 color: "transparent"
-
                 Text {
                     text: section
                     font.bold: true
@@ -70,7 +62,16 @@ Rectangle {
                 }
             }
         }
+
+        TableViewColumn { title: qsTr("Records"); role: "playTime"
+            delegate: Item {Text{ color: Utils.randomColor(); text: Qt.formatDateTime(new Date(styleData.value), "mm:ss")}}
+        }
+
+        TableViewColumn { title: qsTr("When"); role: "when"
+            delegate: Item{Text{color: Utils.randomColor(); text: Qt.formatDateTime(new Date(styleData.value), "yyyy-MM-ss h:mm")}}
+        }
     }
+
     Component.onCompleted: recordsView.resizeColumnsToContents();
 
     Rectangle {
@@ -100,27 +101,27 @@ Rectangle {
     }
 
     Rectangle {
-     id: clearBtn
-     anchors.bottom: root.bottom
-     anchors.left: root.left
-     color: Utils.randomColor()
+        id: clearBtn
+        anchors.bottom: root.bottom
+        anchors.left: root.left
+        color: Utils.randomColor()
 
-     width: btnText.contentWidth + root.anchors.margins
-     height: btnText.contentHeight + root.anchors.margins
-     radius: height / 2.5
+        width: btnText.contentWidth + root.anchors.margins
+        height: btnText.contentHeight + root.anchors.margins
+        radius: height / 2.5
 
-     Text {
-         text: qsTr("Clear")
-         anchors.centerIn: parent
-         color: Utils.mainFrColor
-         font.pixelSize: Utils.scaled(18)
-     }
-     MouseArea {
-         anchors.fill: parent
-         onClicked: {
-             recordsModel.clear()
-         }
-     }
+        Text {
+            text: qsTr("Clear")
+            anchors.centerIn: parent
+            color: Utils.mainFrColor
+            font.pixelSize: Utils.scaled(18)
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                recordsModel.clear()
+            }
+        }
     }
 
     // code to exit on backspace pressed

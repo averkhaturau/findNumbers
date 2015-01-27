@@ -17,7 +17,7 @@ Rectangle {
     Text{
         text: theText
         anchors.centerIn: parent
-        color: Qt.rgba(Math.random(), Math.random(), Math.random(), 1)
+        color: Utils.randomColor()
         font.pixelSize: theMainWindow.width / 7
         font.family: Utils.fontFamily
     }
