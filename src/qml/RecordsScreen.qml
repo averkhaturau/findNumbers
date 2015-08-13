@@ -68,7 +68,7 @@ Rectangle {
         }
 
         TableViewColumn { title: qsTr("When"); role: "when"
-            delegate: Item{Text{color: Utils.randomColor(); text: Qt.formatDateTime(new Date(styleData.value), "yyyy-MM-ss h:mm")}}
+            delegate: Item{Text{color: Utils.randomColor(); text: Qt.formatDateTime(new Date(styleData.value), "yyyy-MM-dd h:mm")}}
         }
     }
 
